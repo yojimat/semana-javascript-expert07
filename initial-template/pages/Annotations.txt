@@ -1,0 +1,2 @@
+-> The worker pick up the path from where the process starts.
+
