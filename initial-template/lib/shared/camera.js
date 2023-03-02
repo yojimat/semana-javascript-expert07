@@ -22,7 +22,7 @@ export default class Camera {
     const camera = new Camera();
     camera.video.srcObject = stream;
 
-    // for debug
+    // for debug purposes.
     camera.video.height = 240;
     camera.video.width = 320;
     document.body.append(camera.video);

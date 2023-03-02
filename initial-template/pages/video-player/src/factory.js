@@ -6,7 +6,8 @@ import View from "./view.js";
 
 async function getWorker() {
   if (supportsWorkerType()) {
-    console.log("suporta!");
+    console.log("Browser supports workers.");
+    console.log("Initializing esm workers.");
     const worker = new Worker("./src/worker.js", { type: "module" });
     return worker;
   }
@@ -14,20 +15,19 @@ async function getWorker() {
     async postMessage() {},
     onmessage(msg) {},
   };
-  console.log("não suporta");
+  console.log("Browser doesn't support workers.");
   return workerMock;
 }
 
 const worker = await getWorker();
-// console.log(worker);
-worker.postMessage('hey factory')
-
 const camera = await Camera.init();
+
 const factory = {
   async initialize() {
     return Controller.initialize({
-      view: new View({}),
-      service: new Service({}),
+      view: new View(),
+      worker,
+      camera,
     });
   },
 };
