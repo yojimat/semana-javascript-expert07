@@ -22,5 +22,5 @@ postMessage(BLINK_READY);
 onmessage = async ({ data: video }) => {
   const blinked = await service.hadBlinked(video);
   if (!blinked) return; 
-  postMessage({ ok: "ok" });
+  postMessage({ blinked });
 };

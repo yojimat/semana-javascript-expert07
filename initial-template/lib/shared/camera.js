@@ -23,9 +23,9 @@ export default class Camera {
     camera.video.srcObject = stream;
 
     // for debug purposes.
-    camera.video.height = 240;
-    camera.video.width = 320;
-    document.body.append(camera.video);
+    // camera.video.height = 240;
+    // camera.video.width = 320;
+    // document.body.append(camera.video);
 
     // this promise ensures that the camera is active.
     await new Promise((resolve) => {
